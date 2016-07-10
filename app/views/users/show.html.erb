@@ -1,0 +1,11 @@
+<div class="container">
+	<div class="row">
+		<div class="col-md-5 center-block no-float">
+			<h1><%= @user.username %></h1>
+			<br>
+			<% if user_signed_in? and current_user.can_follow?(@user.id) %>
+				<button class="btn btn-info" id="btn-follow" data-friend="<%= @user.id %>"><i class="fa fa-user"></i> Seguir</button>
+			<% end %>
+		</div>
+	</div>
+</div>

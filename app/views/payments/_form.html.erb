@@ -1,0 +1,15 @@
+<%= form_for(payment) do |f| %>
+	<% if payment.errors.any? %>
+		<h2><%= pluralize(payment.errors.count, "error")%> evitaron que el pago se guardara </h2>
+	<%end %>
+
+	<div class="field">
+		<%= f.hidden_field :post_id, value: post.id %>
+	</div>
+	<div class="actions">
+		<%= content_tag :button, type: :submit, class: "btn btn-success" do %>
+			<i class="fa fa-shopping-cart"></i> Comprar
+		<% end %>
+	</div>
+
+<%end%>

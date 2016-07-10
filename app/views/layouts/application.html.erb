@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Blog</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<p class="notice" style="<%= "display:none;" if notice.nil? %>"><%= notice %></p>
+<p class="alert" style="<%= "display:none;" if alert.nil? %>"><%= alert %></p>
+<header>
+	<nav>
+		<ul class="nav nav-tabs">
+			<li>
+				<%= link_to "Home", root_path %>
+			</li>
+			<li>
+				<%= link_to "Posts", posts_path %>
+			</li>
+			<% if user_signed_in? %>
+				<li>
+					<%= link_to "Editar perfil", edit_user_registration_path(current_user) %>
+				</li>
+				<li>
+					<%= link_to "Mi carrito", cart_path %>
+				</li>
+				<li>
+					<%= link_to "Mi compras", purchases_path %>
+				</li>
+				<li>
+					<%= link_to "Cerrar sesión", destroy_user_session_path, method: :delete %>
+				</li>
+			<% else %>
+				<li>
+					<%= link_to "Ingresar", new_user_session_path %>
+				</li>
+				<li>
+					<%= link_to "Registrarse", new_user_registration_path %>
+				</li>
+			<%end%>
+		</ul>
+	</nav>
+</header>
+<section class="text-center">
+	<%= yield %>
+</section>
+
+
+</body>
+</html>

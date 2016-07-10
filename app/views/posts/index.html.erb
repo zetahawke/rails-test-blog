@@ -1,0 +1,13 @@
+<h1>Lista de posts</h1>
+
+<ul class="list-group">
+  <% @posts.each do |post| %>
+  <li class="list-group-item">
+    <%= link_to post.tittle, post%> ha sido creado por: <%= link_to post.user.username, post.user%>
+  </li>
+  <%end%>
+</ul>
+
+<% if user_signed_in? %>
+  <%= link_to 'Nuevo Post', new_post_path %>
+<%end%>

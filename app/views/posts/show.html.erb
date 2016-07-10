@@ -1,0 +1,23 @@
+<div class="jumbotron">
+	<h1><%= @post.tittle %></h1>
+	<div>
+		<%= @post.contenido %>
+	</div>
+	<% if current_user.payments.where(post_id: @post.id).size <= 0 %>
+		<div class="text-center">
+			<% if  user_signed_in?%>
+				<%= render "payments/form", payment: Payment.new, post: @post %>
+			<% end %>
+		</div>
+	<% end %>
+</div>
+
+<div class="text-right">
+	<% if @post.user and user_signed_in? and @post.user == current_user %>
+		<%= link_to 'Editar', edit_post_path(@post) %> |
+		<%= link_to 'Eliminar', @post, method: :delete, data: {confirm: "¿Estás seguro que deseas borrar este post?"}  %> |
+	<%end %>
+
+	<%= link_to 'Atrás', posts_path %>
+
+</div>

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  token: MyString
+  payerid: MyString
+  user_id: 
+  total: 9.99
+  response: MyString
+
+two:
+  token: MyString
+  payerid: MyString
+  user_id: 
+  total: 9.99
+  response: MyString

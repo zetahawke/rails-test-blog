@@ -23,7 +23,7 @@ class User < ActiveRecord::Base
   has_many :transactions
 
   def total_to_pay
-    self.payments.where(status: 1).joins("INNER JOIN posts on posts.id == payments.post_id").sum("price")
+    self.payments.where(status: 1).joins("INNER JOIN posts on posts.id = payments.post_id").sum("price")
   end
 
 
